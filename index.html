@@ -8,18 +8,25 @@
  </head>
  <body>
   <h1>操作成功</h1><!--先编写好网页布局-->
-  <form><input id="sec" value="5"/></form><p>秒后回到主页</p>
+  <form><span id="sec">5</span></form><p>秒后回到主页</p><a href="javascript:back();">返回</a>
   
  
   <script type="text/javascript">  
   function count(){
-       var sec=document.getElementById("sec").value-1;
-       document.getElementById("sec").value=sec;
+       var sec=document.getElementById("sec").innerHTML--;
        if(sec==0)
-    clearInterval(a);
+       {
+     location.assign("http://www.google.fr");
+       }
+       else
+     setTimeout(count,1000);
   }
 
- var a=setInterval(count,1000);
- window.history.back();
+setTimeout(count,1000);
+function back(){
+    window.history.back();
+}
 
  </script> 
+</body>
+</html>
