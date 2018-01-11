@@ -1,32 +1,61 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <title>浏览器对象</title>  
-  <meta http-equiv="Content-Type" content="text/html; charset=gkb"/>  
-  <style type="text/css">
-  </style>
- </head>
- <body>
-  <h1>操作成功</h1><!--先编写好网页布局-->
-  <form><span id="sec">5</span></form><p>秒后回到主页</p><a href="javascript:back();">返回</a>
-  
- 
-  <script type="text/javascript">  
-  function count(){
-       var sec=document.getElementById("sec").innerHTML--;
-       if(sec==0)
-       {
-     location.assign("http://www.google.fr");
-       }
-       else
-     setTimeout(count,1000);
-  }
-
-setTimeout(count,1000);
-function back(){
-    window.history.back();
-}
-
- </script> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<style>
+.title{	height:100px;background:rgba(153,204,204,0.5);}
+.main{width:800px;height:500px;margin:0 auto;}
+.places{height:500px;width:500px;float:left;}
+.weathers{height:500px;width:300px;float:right;background-color:rgba(153,204,204,0.2);position:relative;}
+.bottom{height:100px;background:rgba(153,204,204,0.5);}
+h1{color:white;display:inline-block;}
+#t{width:300px;height:200px;background-color:rgba(0,0,0,0.1);position:absolute;top:150px;font-size:100px;color:#fff;}
+p{padding:0;margin:0;text-align:center;}
+img{ width:100%;height:100%; margin:0;padding:0;}
+.pic{ display:inline-block;margin:15px;height:200px;width:200px;background-color:#666;position:relative;}
+.pic div{ color:white; margin:0;padding:0; width:200px; height:50px; line-height:50px; background-color:rgba(0,0,0,0.5); position:absolute; bottom:0;}
+#placeholder{width:100px;height:100px;display:block;margin:0 auto;}
+</style>
+</head>
+<body>
+<div class="title">
+<h1>The memories</h1>
+</div>
+<div class="main">
+<div class="places">
+<div class="pic" name="paris">
+<img src="file:///C:/Users/zsy/Documents/GitHub/callseela.github.io/paris.JPG"/><div>Paris</div></div>
+<div class="pic" name="honkong">
+<img src="file:///C:/Users/zsy/Documents/GitHub/callseela.github.io/honkong.JPG"/><div>Honkong</div></div>
+<div class="pic" name="barcelona">
+<img src="file:///C:/Users/zsy/Documents/GitHub/callseela.github.io/barcelona.JPG"/><div>Barcelona</div></div>
+<div class="pic" name="gerardmer">
+<img src="file:///C:/Users/zsy/Documents/GitHub/callseela.github.io/gerardmer.JPG"/><div>Gérardmer</div></div>
+</div>
+<div class="weathers">
+<img src="file:///C:/Users/zsy/Documents/GitHub/callseela.github.io/IMG_5703.JPG">
+<div id="t">
+<img id="placeholder" src="file:///C:/Users/zsy/Documents/GitHub/callseela.github.io/default.png"></div>
+</div>
+</div>
+<div class="bottom"></div>
+<script>
+  var callbackFunction = function(data) {
+    var condition = data.query.results.channel.item.condition;
+	var code=condition.code;
+	if(code==26)
+	{
+	document.getElementById("placeholder").setAttribute("src","file:///C:/Users/zsy/Documents/GitHub/callseela.github.io/cloudy.png");	
+	}
+	var temp=Math.round((condition.temp-32)/1.8);
+    var temperature=document.createElement("p");
+	temperature.innerHTML=temp+"°C";
+	var tem=document.getElementById("t")
+	tem.insertBefore(temperature,tem.lastChild);
+  };
+</script>
+<script src="https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='paris')&u=c&format=json&callback=callbackFunction"></script>
 </body>
 </html>
