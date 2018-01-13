@@ -34,6 +34,8 @@ height:100%;
 	height:700px;width:50px;position:absolute;right:0px;bottom:0;}
 	#right:hover{background-image:url(right.png);
 	}
+	.bottom{height:100px; width:800px;background:rgba(153,204,204,0.4); color:#999; font-size:18px;margin:0 auto;}
+	.bottom p{padding:0;margin:0;text-align:center;}
 </style>
 </head>
 <body>
@@ -42,11 +44,11 @@ height:100%;
 <p>Paris, known as the most romantic and historical city in the world. Before arriving in Paris to continue my study here, Paris is nothing more than a fantastic place plied up with those words like: romantic, the Eiffel Tower, the perfume, the luxury, the seine river, the cheese...of course with plenty of tourists and fashion shows.</br></p><p>Nevertheless, after having been living here for one year, as a student who has a relatively flexible timetable which allows me to explore Paris in a more casual way, the picture of Paris changed in my eyes. The most splendid and attractive things is no longer those places of interest, it became into everything that I see during my daily life, the ancient metro stations ( historical but... without fresh air inside), the ancient buildings with sculptures on the surface, pretty little dogs with their wagging tails, delicate flower shops, bakeries from which the tasty smell spread... </br></br></p>
 <div id="image">
 <img src="1.jpg" id="places">
-<div id="left" onclick="privious()"></div><div id="right" onclick="next()"></div>
+<div id="left" onclick="privious()"></div><div id="right" onclick="next()"></div></div>
 <p style="text-indent:0em;">An attention:</br></br>Except the fast food restaurant, and kebab, you can’t even find an opening restaurant before 7:00PM... 
 </br></br>The following pictures are what I've taken in Paris.</p>
 </div>
-</div>
+<div class="bottom"><p>Contact:</br>Mail: shiyue.zhang.95@gmail.com</p></div>
 <script>
 function privious(){
 	var pic=document.getElementById("places").src;
