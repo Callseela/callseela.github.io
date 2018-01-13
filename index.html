@@ -1,20 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Callsela</title>
-</head>
 <style>
-.title{	height:100px;background:rgba(153,204,204,0.5);}
+.title{	height:100px;width:800px;background:rgba(153,204,204,0.5);margin:0 auto;}
 .main{width:800px;height:500px;margin:0 auto;}
-.places{height:500px;width:500px;float:left;background-image:url(https://callseela.github.io/places.jpg);background-size:100%;}
+.places{height:500px;width:500px;float:left;background-image:url(places.jpg);background-size:100%;}
 .weathers{height:500px;width:300px;float:right;position:relative;}
-.bottom{height:100px;background:rgba(153,204,204,0.4); color:#999; font-size:18px;}
+.bottom{height:100px; width:800px;background:rgba(153,204,204,0.4); color:#999; font-size:18px;margin:0 auto;}
 h1{color:white;display:inline-block;}
 #t{width:300px;height:200px;background-color:rgba(0,0,0,0.1);position:absolute;top:150px;font-size:100px;color:#fff;}
 p{padding:0;margin:0;text-align:center;}
 img{ width:100%;height:100%; margin:0;padding:0;}
-.pic{ display:inline-block;margin:23px;height:200px;width:200px;background-color:#666;position:relative;}
+.pic{ display:inline-block;margin:23px;height:200px;width:200px;position:relative; cursor:pointer;}
 .pic div{ color:white; margin:0;padding:0; width:200px; height:50px; line-height:50px; background-color:rgba(0,0,0,0.5); position:absolute; bottom:0;}
 #placeholder{width:100px;height:100px;display:block;margin:0 auto;}
 </style>
@@ -26,18 +25,18 @@ img{ width:100%;height:100%; margin:0;padding:0;}
 <div class="main">
 <div class="places">
 <div class="pic" name="paris">
-<img src="https://callseela.github.io/paris.jpg"/><div>Paris</div></div>
+<img src="paris.jpg" onclick="javascript:window.open('paris/paris.html','_self');"/><div>Paris</div></div>
 <div class="pic" name="honkong">
-<img src="https://callseela.github.io/honkong.jpg"/><div>Honkong</div></div>
+<img src="honkong.jpg" onclick="javascript:window.open('honkong/honkong.html','_self');"/><div>Honkong</div></div>
 <div class="pic" name="barcelona">
-<img src="https://callseela.github.io/barcelona.jpg"/><div>Barcelona</div></div>
+<img src="barcelona.jpg" onclick="javascript:window.open('barcelona/barcelona.html','_self');"/><div>Barcelona</div></div>
 <div class="pic" name="gerardmer">
-<img src="https://callseela.github.io/gerardmer.jpg"/><div>Gérardmer</div></div>
+<img src="gerardmer.jpg" onclick="javascript:window.open('gerardmer/gerardmer.html','_self');"/><div>Gérardmer</div></div>
 </div>
 <div class="weathers">
-<img src="https://callseela.github.io/paris_weather.jpg">
+<img src="paris_weather.jpg">
 <div id="t">
-<img id="placeholder" src="https://callseela.github.io/default.png"></div>
+<img id="placeholder" src="default.png"></div>
 </div>
 </div>
 <div class="bottom"><p>Contact:</br>Mail: shiyue.zhang.95@gmail.com</p></div>
@@ -45,9 +44,9 @@ img{ width:100%;height:100%; margin:0;padding:0;}
   var callbackFunction = function(data) {
     var condition = data.query.results.channel.item.condition;
 	var code=condition.code;
-	if(code==26)
+	if(code==26||code==27||code==28)
 	{
-	document.getElementById("placeholder").setAttribute("src","https://callseela.github.io/cloudy.png");	
+	document.getElementById("placeholder").setAttribute("src","cloudy.png");	
 	}
 	var temp=Math.round((condition.temp-32)/1.8);
     var temperature=document.createElement("p");
