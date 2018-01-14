@@ -15,7 +15,7 @@ p{padding:0;margin:0;text-align:center;}
 img{ width:100%;height:100%; margin:0;padding:0;}
 .pic{ display:inline-block;margin:23px;height:200px;width:200px;position:relative; cursor:pointer;}
 .pic div{ color:white; margin:0;padding:0; width:200px; height:50px; line-height:50px; background-color:rgba(0,0,0,0.5); position:absolute; bottom:0;}
-#placeholder{width:100px;height:100px;display:block;margin:0 auto;}
+#placeholder{width:100px;height:100px;display:block; position:absolute; bottom:0px; left:0; right:0;margin:0 auto;}
 </style>
 </head>
 <body>
@@ -44,10 +44,20 @@ img{ width:100%;height:100%; margin:0;padding:0;}
   var callbackFunction = function(data) {
     var condition = data.query.results.channel.item.condition;
 	var code=condition.code;
-	if(code==26||code==27||code==28)
-	{
-	document.getElementById("placeholder").setAttribute("src","cloudy.png");	
-	}
+	var tempic=document.getElementById("placeholder");
+	switch(code){
+	case "26":
+	case "27":
+	case "28":
+	tempic.setAttribute("src","cloudy.png");	
+	break;
+	case "29":
+	tempic.setAttribute("src","partly_cloudy_N.png");
+	break;
+	case "30":
+	tempic.setAttribute("src","partly_cloudy_D.png");
+	break;}
+	
 	var temp=Math.round((condition.temp-32)/1.8);
     var temperature=document.createElement("p");
 	temperature.innerHTML=temp+"°C";
