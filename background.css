@@ -1,0 +1,8 @@
+div{ width:800px;margin:0 auto;color:#666;}
+#top{height:300px;}
+body{ background-color:#f8f8f8;}
+img{ height:100%; width:100%;}
+h1,h3{ font-style:italic;}
+p{ font-size:18px;inline-height:1.5em;text-indent:2em;}
+.bottom{height:100px; width:800px;background:rgba(153,204,204,0.4); color:#999; font-size:18px;margin:0 auto;}
+.bottom p{padding:0;margin:0;text-align:center;}
