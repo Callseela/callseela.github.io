@@ -47,16 +47,22 @@ img{ width:100%;height:100%; margin:0;padding:0;}
 	var code=condition.code;
 	var tempic=document.getElementById("placeholder");
 	switch(code){
+	case "11":
+	tempic.setAttribute("src","weathers/showers_N.png");
+	break;
+	case "12":
+	tempic.setAttribute("src","weathers/showers_D.png");
+	break;
 	case "26":
 	case "27":
 	case "28":
-	tempic.setAttribute("src","cloudy.png");	
+	tempic.setAttribute("src","weathers/cloudy.png");	
 	break;
 	case "29":
-	tempic.setAttribute("src","partly_cloudy_N.png");
+	tempic.setAttribute("src","weathers/partly_cloudy_N.png");
 	break;
 	case "30":
-	tempic.setAttribute("src","partly_cloudy_D.png");
+	tempic.setAttribute("src","weathers/partly_cloudy_D.png");
 	break;}
 	
 	var temp=Math.round((condition.temp-32)/1.8);
