@@ -35,7 +35,7 @@ h1{color:white;display:inline-block;}
 <div class="weathers">
 <img src="paris_weather.jpg">
 <div id="t">
-<img id="placeholder" src="default.png"></div>
+<img id="placeholder" src="weathers/default.png"></div>
 </div>
 </div>
 <div class="bottom"><p>Contact:</br>Mail: shiyue.zhang.95@gmail.com</p></div>
@@ -44,12 +44,13 @@ h1{color:white;display:inline-block;}
     var condition = data.query.results.channel.item.condition;
 	var code=condition.code;
 	var tempic=document.getElementById("placeholder");
+	//alert(code);
 	switch(code){
 	case "11":
-	tempic.setAttribute("src","weathers/showers_N.png");
+	tempic.setAttribute("src","weathers/showers_D.png");
 	break;
 	case "12":
-	tempic.setAttribute("src","weathers/showers_D.png");
+	tempic.setAttribute("src","weathers/showers_N.png");
 	break;
 	case "26":
 	case "27":
@@ -61,7 +62,14 @@ h1{color:white;display:inline-block;}
 	break;
 	case "30":
 	tempic.setAttribute("src","weathers/partly_cloudy_D.png");
-	break;}
+	break;
+	case "38":
+	tempic.setAttribute("src","weathers/scattered thunderstorms_D.png");
+	break;
+	case "39":
+	tempic.setAttribute("src","weathers/scattered thunderstorms_N.png");
+	break;
+	}
 	
 	var temp=Math.round((condition.temp-32)/1.8);
     var temperature=document.createElement("p");
